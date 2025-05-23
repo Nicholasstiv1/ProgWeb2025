@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <script>
+        class IntegerSet {
+            constructor(maxValue) {
+                if (!Number.isInteger(maxValue) || maxValue < 0) {
+                    throw new Error("O valor máximo deve ser um inteiro não negativo.");
+                }
+                this.maxValue = maxValue;
+                this.data = new Array(maxValue + 1).fill(false);
+            }
+
+            add(value) {
+                if (this.#isValid(value)) {
+                    this.data[value] = true;
+                }
+            }
+
+            remove(value) {
+                if (this.#isValid(value)) {
+                    this.data[value] = false;
+                }
+            }
+
+            contains(value) {
+                return this.#isValid(value) && this.data[value];
+            }
+
+            union(otherSet) {
+                this.#checkCompatibility(otherSet);
+                const result = new IntegerSet(this.maxValue);
+                for (let i = 0; i <= this.maxValue; i++) {
+                    result.data[i] = this.data[i] || otherSet.data[i];
+                }
+                return result;
+            }
+
+            intersection(otherSet) {
+                this.#checkCompatibility(otherSet);
+                const result = new IntegerSet(this.maxValue);
+                for (let i = 0; i <= this.maxValue; i++) {
+                    result.data[i] = this.data[i] && otherSet.data[i];
+                }
+                return result;
+            }
+
+            difference(otherSet) {
+                this.#checkCompatibility(otherSet);
+                const result = new IntegerSet(this.maxValue);
+                for (let i = 0; i <= this.maxValue; i++) {
+                    result.data[i] = this.data[i] && !otherSet.data[i];
+                }
+                return result;
+            }
+
+            toString() {
+                const elementos = [];
+                for (let i = 0; i <= this.maxValue; i++) {
+                    if (this.data[i]) elementos.push(i);
+                }
+                return `{ ${elementos.join(", ")} }`;
+            }
+
+            // Métodos privados
+            #isValid(value) {
+                return Number.isInteger(value) && value >= 0 && value <= this.maxValue;
+            }
+
+            #checkCompatibility(otherSet) {
+                if (!(otherSet instanceof IntegerSet) || otherSet.maxValue !== this.maxValue) {
+                    throw new Error("Os conjuntos devem ter o mesmo valor máximo.");
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

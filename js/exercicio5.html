@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercicio 5</title>
+  <style>
+    #grafico {
+      margin-top: 20px;
+      display: flex;
+      align-items: flex-end;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+
+    .barra {
+      background-color: red;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Um Gráfico de Barras</h2>
+
+  <label>Informe a altura das barras:</label>
+  <input type="text" id="alturas" value="100 150 120 80 40"><br><br>
+
+  <label>Informe a largura das barras:</label>
+  <input type="number" id="largura" value="30"><br><br>
+
+  <button onclick="desenharGrafico()">Desenhar o gráfico</button>
+
+  <div id="grafico"></div>
+
+  <script>
+    function desenharGrafico() {
+      const container = document.getElementById('grafico');
+      container.innerHTML = ''; // limpa o gráfico anterior
+
+      const alturas = document.getElementById('alturas').value.trim().split(/\s+/).map(Number);
+      const largura = parseInt(document.getElementById('largura').value);
+
+      alturas.forEach(altura => {
+        if (!isNaN(altura)) {
+          const barra = document.createElement('div');
+          barra.className = 'barra';
+          barra.style.height = altura + 'px';
+          barra.style.width = largura + 'px';
+          container.appendChild(barra);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

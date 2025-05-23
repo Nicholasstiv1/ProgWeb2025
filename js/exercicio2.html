@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <script>
+        let resultado = true
+        let pontuacao = 0
+        const opcoes = ["papel", "pedra", "tesoura"]
+        while (resultado) {
+            const jogada = parseInt(prompt())
+            if (![1, 2, 3].includes(jogada)) {
+                break
+            }
+            console.log("Escolha sua jogada: \n1 - Papel\n2 - Pedra\n3 - Tesoura")
+            const escolhaJogador = jogada - 1
+            const escolhaComputador = Math.floor(Math.random() * 3);
+            console.log(`O computador jogou ${opcoes[escolhaJogador]}`)
+
+            if (escolhaJogador === escolhaComputador) {
+
+                console.log("A rodada empatou!")
+            } else if (
+                (escolhaJogador === 0 && escolhaComputador === 1) ||
+                (escolhaJogador === 1 && escolhaComputador === 2) ||
+                (escolhaJogador === 2 && escolhaComputador === 0)
+            ) {
+                pontuacao++
+                console.log("Você ganhou!")
+            } else {
+                console.log(`Você perdeu! A sua pontuação foi de ${pontuacao}`)
+                resultado = false
+            }
+
+        }
+    </script>
+</body>
+
+</html>

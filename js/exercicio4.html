@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 4</title>
+    <style>
+        .bloco {
+            padding: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bloco">
+        <span>Informe o raio</span>
+        <input type="number" id="raio" step="any">
+        <button onclick="calcular()">OK</button>
+    </div>
+    <div class="bloco">
+        <span>Raio do circulo</span>
+        <input type="text" id="area" readonly>
+    </div>
+    <div class="bloco">
+        <span>Circunferência</span>
+        <input type="text" id="circunferencia" readonly>
+    </div>
+
+    <script>
+        function calcular() {
+            const raio = parseFloat(document.getElementById('raio').value);
+            if (isNaN(raio) || raio < 0) {
+                alert("Informe um raio válido.");
+                return;
+            }
+
+            const area = Math.PI * raio * raio;
+            const circunferencia = 2 * Math.PI * raio;
+
+            document.getElementById('area').value = area.toFixed(2);
+            document.getElementById('circunferencia').value = circunferencia.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

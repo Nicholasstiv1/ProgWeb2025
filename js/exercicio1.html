@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tabelas-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const container = document.createElement('div');
+        container.className = 'tabelas-container';
+
+        for (let i = 1; i <= 10; i++) {
+            const table = document.createElement('table');
+
+            // Cabeçalho da tabela
+            const thead = document.createElement('thead');
+            const th = document.createElement('th');
+            th.colSpan = 2;
+            th.innerText = `Produtos de ${i}`;
+            thead.appendChild(th);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            for (let j = 1; j <= 10; j++) {
+                const tr = document.createElement('tr');
+                const td1 = document.createElement('td');
+                td1.innerText = `${i}x${j}`;
+                const td2 = document.createElement('td');
+                td2.innerText = i * j;
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+            container.appendChild(table);
+        }
+
+        document.body.appendChild(container);
+    </script>
+</body>
+
+</html>

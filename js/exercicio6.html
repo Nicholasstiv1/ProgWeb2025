@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercicio 6</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #f8f8d8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: blue;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const maxDots = 8;
+    const dots = [];
+
+    document.addEventListener('mousemove', (event) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      dot.style.left = `${event.pageX - 5}px`;
+      dot.style.top = `${event.pageY - 5}px`;
+      document.body.appendChild(dot);
+      dots.push(dot);
+
+      if (dots.length > maxDots) {
+        const oldDot = dots.shift();
+        oldDot.remove();
+      }
+    });
+  </script>
+</body>
+</html>
