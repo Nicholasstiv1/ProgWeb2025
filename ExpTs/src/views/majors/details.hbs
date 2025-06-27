@@ -1,0 +1,23 @@
+<div class="container py-4" style="max-width: 600px;">
+  <h1 class="mb-4 fw-light text-center">Detalhes do Curso</h1>
+
+  <ul class="list-group mb-4">
+    <li class="list-group-item">
+      <strong>ID:</strong> {{major.id}}
+    </li>
+    <li class="list-group-item">
+      <strong>Nome:</strong> {{major.name}}
+    </li>
+    <li class="list-group-item">
+      <strong>Sigla:</strong> {{major.code}}
+    </li>
+    <li class="list-group-item">
+      <strong>Descrição:</strong> {{major.description}}
+    </li>
+  </ul>
+
+  <div class="d-flex justify-content-between">
+    <a href="/majors" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/majors/edit/{{major.id}}" class="btn btn-primary">Editar</a>
+  </div>
+</div>

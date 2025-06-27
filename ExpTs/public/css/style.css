@@ -1,0 +1,18 @@
+.hb1-title {
+  color: #3498db;
+  font-size: 2em;
+}
+
+.hb1-text {
+  color: #e74c3c;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+  margin: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
