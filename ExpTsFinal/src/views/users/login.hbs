@@ -1,0 +1,25 @@
+<div class="container py-5" style="max-width: 400px;">
+  <h2 class="mb-4 text-center">Entrar na sua conta</h2>
+
+  <form action="/users" method="POST">
+    <div class="mb-3">
+      <label>Email:</label>
+      <input type="email" name="email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Senha:</label>
+      <input type="password" name="password" class="form-control" required />
+    </div>
+
+    {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+
+    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <p class="mb-0">Ainda não tem uma conta?</p>
+    <a href="/users/create" class="btn btn-link">Clique aqui para se cadastrar</a>
+  </div>
+</div>

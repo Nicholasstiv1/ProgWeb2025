@@ -1,0 +1,32 @@
+<div class="container py-4" style="max-width: 800px;">
+  <h2 class="text-center mb-4">Ranking Geral</h2>
+
+  {{#if ranking.length}}
+    <div class="table-responsive">
+      <table class="table table-striped text-center">
+        <thead class="table-light">
+          <tr>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Melhor Pontuação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each ranking}}
+            <tr>
+              <td>{{inc @index}}</td>
+              <td>{{this.user.fullName}}</td>
+              <td>{{this.user.email}}</td>
+              <td><strong>{{this.score}}</strong></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{else}}
+    <div class="alert alert-info text-center">
+      Nenhuma pontuação registrada ainda. Seja o primeiro a jogar!
+    </div>
+  {{/if}}
+</div>

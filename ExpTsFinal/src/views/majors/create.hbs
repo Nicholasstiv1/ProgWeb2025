@@ -1,0 +1,30 @@
+<div class="container py-4" style="max-width: 600px;">
+  <h1 class="mb-4 fw-light text-center">Novo Curso</h1>
+
+  <form action="/majors/create" method="POST" class="vstack gap-3">
+
+    <div>
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" name="name" id="name" class="form-control" required />
+    </div>
+
+    <div>
+      <label for="code" class="form-label">Sigla (4 letras)</label>
+      <input type="text" name="code" id="code" maxlength="4" class="form-control" required />
+    </div>
+
+    <div>
+      <label for="description" class="form-label">Descrição</label>
+      <textarea name="description" id="description" rows="3" class="form-control" required></textarea>
+    </div>
+
+    {{#if error}}
+      <div class="alert alert-danger mb-0">{{error}}</div>
+    {{/if}}
+
+    <div class="d-flex justify-content-between">
+      <a href="/majors" class="btn btn-outline-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>

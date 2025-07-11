@@ -1,0 +1,73 @@
+<div class="container py-4" style="max-width: 600px;">
+  <h1 class="mb-4 fw-light text-center">Novo Usuário</h1>
+
+  <form action="/users/create" method="POST" class="vstack gap-3">
+
+    <div>
+      <label for="fullName" class="form-label">Nome completo</label>
+      <input
+        type="text"
+        name="fullName"
+        id="fullName"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="password" class="form-label">Senha</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="confirmPassword" class="form-label">Repetir Senha</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="majorId" class="form-label">Curso</label>
+      <select
+        name="majorId"
+        id="majorId"
+        class="form-select"
+        required
+      >
+        {{#each majors}}
+          <option value="{{this.id}}">{{this.code}} - {{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if error}}
+      <div class="alert alert-danger mb-0">{{error}}</div>
+    {{/if}}
+
+    <div class="d-flex justify-content-between">
+      <a href="/users" class="btn btn-outline-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </form>
+</div>

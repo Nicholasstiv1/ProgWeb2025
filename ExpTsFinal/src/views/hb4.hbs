@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h1>{{title}}</h1>
+  {{{nodeJsTechnologies technologies}}}
+  
+  <hr>
+  
+  <h3>Lista completa de tecnologias:</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Node.js</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each technologies}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.type}}</td>
+        <td>{{#if this.poweredByNodejs}}Sim{{else}}Não{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

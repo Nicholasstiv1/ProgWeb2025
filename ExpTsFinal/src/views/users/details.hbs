@@ -1,0 +1,26 @@
+<div class="container py-4" style="max-width: 600px;">
+  <h1 class="mb-4 fw-light text-center">Detalhes do Usuário</h1>
+
+  <ul class="list-group mb-4">
+    <li class="list-group-item">
+      <strong>ID:</strong> {{user.id}}
+    </li>
+    <li class="list-group-item">
+      <strong>Nome:</strong> {{user.fullName}}
+    </li>
+    <li class="list-group-item">
+      <strong>Email:</strong> {{user.email}}
+    </li>
+    <li class="list-group-item">
+      <strong>Curso:</strong> {{user.major.code}} - {{user.major.name}}
+    </li>
+    <li class="list-group-item">
+      <strong>Criado em:</strong> {{user.createdAt}}
+    </li>
+  </ul>
+
+  <div class="d-flex justify-content-between">
+    <a href="/users" class="btn btn-outline-secondary">Voltar</a>
+    <a href="/users/edit/{{user.id}}" class="btn btn-primary">Editar</a>
+  </div>
+</div>
